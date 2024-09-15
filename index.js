@@ -7,21 +7,19 @@ const bot = new Telegraf(token)
 const specificUserId = 340979978;
 
 bot.on("message", async ctx => {
-    // Проверяем, что сообщение содержит текст
+    
     if (ctx.message && ctx.message.text) {
         const msg = ctx.message.text;
-        const senderId = ctx.message.from.id;  // Получаем ID отправителя
+        const senderId = ctx.message.from.id;  
 
-        // Регулярное выражение для любого текста (любой длины и языка)
+        
         const regex = /.+/;
 
-        // Проверяем, что сообщение от нужного пользователя и сообщение соответствует регулярному выражению
+        
         if (senderId === specificUserId && regex.test(msg)) {
-            ctx.reply("Нахуй ты это сюда пишешь уебище?");
+            ctx.reply("Ne pishi suda bolshe");
         }
     }
 });
 
 bot.launch()
-
-console.log("hi");
